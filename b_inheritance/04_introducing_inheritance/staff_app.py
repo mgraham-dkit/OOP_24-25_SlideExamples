@@ -1,7 +1,7 @@
 import random as rand
-from Staff import Staff
-from FullTimeStaff import FullTimeStaff
-from PartTimeStaff import PartTimeStaff
+from employees import Staff
+from employees import FullTimeStaff
+from employees import PartTimeStaff
 
 
 employee = Staff("Michelle", "Graham", "Computing and Maths")
