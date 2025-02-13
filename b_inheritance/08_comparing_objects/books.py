@@ -11,7 +11,7 @@ class Book:
     def __str__(self) -> str:
         return f"\'{self.title}\' by {self.author}"
 
-    def __eq__(self, other: Book) -> NotImplemented | bool:
+    def __eq__(self, other: Book) -> type(NotImplemented) | bool:
         if not isinstance(other, Book):
             return NotImplemented
         if self.author != other.author:
@@ -21,10 +21,10 @@ class Book:
 
         return True
 
-    def __ne__(self, other: Book) -> NotImplemented | bool:
+    def __ne__(self, other: Book) -> type(NotImplemented) | bool:
         return not self == other
 
-    def __lt__(self, other: Book) -> NotImplemented | bool:
+    def __lt__(self, other: Book) -> type(NotImplemented) | bool:
         if not isinstance(other, Book):
             return NotImplemented
         else:

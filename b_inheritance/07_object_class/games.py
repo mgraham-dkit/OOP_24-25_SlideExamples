@@ -4,8 +4,14 @@ class Game:
     def __init__(self, name, num_players, category = "BOARD"):
         self.name = name
         self.num_players = num_players
-        if category.upper() in Game.categories:
-            self.category = category.upper()
+        if category:
+            category = category.upper()
+            if category in Game.categories:
+                self.category = category.upper()
+            else:
+                self.category = Game.categories[0]
+        else:
+            self.category = Game.categories[0]
 
     def __eq__(self, other):
         if not isinstance(other, Game):

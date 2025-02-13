@@ -7,7 +7,7 @@ class Product:
         self.cost = cost
         self.retail = retail
 
-    def __eq__(self, other: Product) -> NotImplemented | bool:
+    def __eq__(self, other: Product) -> type(NotImplemented) | bool:
         if not isinstance(other, Product):
             return NotImplemented
         if self.name != other.name:
