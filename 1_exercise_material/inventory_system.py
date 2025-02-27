@@ -104,12 +104,6 @@ def remove_item():
         messagebox.showerror("Error", "Please select an item to remove")
 
 
-def update_list():
-    listbox.delete(0, tk.END)
-    for item, qty in inventory.items():
-        listbox.insert(tk.END, f"{item}: {qty}")
-
-
 # Load data on startup
 load_data()
 
