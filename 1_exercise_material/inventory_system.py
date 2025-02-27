@@ -17,24 +17,30 @@ users = {}
 def load_data():
     global inventory, users
     try:
-        with open("inventory.json", "r") as f:
-            inventory = json.load(f)
+        with open("inventory.txt", "r") as f:
+            for line in f:
+                item, qty = line.strip().split(":")
+                inventory[item] = int(qty)
     except FileNotFoundError:
         inventory = {}
 
     try:
-        with open("users.json", "r") as f:
-            users = json.load(f)
+        with open("users.txt", "r") as f:
+            for line in f:
+                username, password = line.strip().split(":")
+                users[username] = password
     except FileNotFoundError:
         users = {"admin": "password"}
 
 
 # Save data to files
 def save_data():
-    with open("inventory.json", "w") as f:
-        json.dump(inventory, f)
-    with open("users.json", "w") as f:
-        json.dump(users, f)
+    with open("inventory.txt", "w") as f:
+        for item, qty in inventory.items():
+            f.write(f"{item}:{qty}\n")
+    with open("users.txt", "w") as f:
+        for username, password in users.items():
+            f.write(f"{username}:{password}\n")
 
 
 def register():
