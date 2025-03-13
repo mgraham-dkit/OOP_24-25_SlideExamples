@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import messagebox
-import json
 
 root = tk.Tk()
 root.title("Inventory System")
